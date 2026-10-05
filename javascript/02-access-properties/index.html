@@ -1,0 +1,13 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Access and Properties</title><style>#hide{padding:10px}</style></head><body><h1>JavaScript Access and Properties</h1><button id="hide">Click: disappear using this</button><p id="callapply"></p><button id="count">Count</button><span id="counter">0</span><p id="accessor"></p><p id="prototype"></p><script>
+const button=document.getElementById('hide'); button.addEventListener('click',function(){this.style.display='none';});
+const person={name:'Asha'}; function greet(greeting,punctuation){return greeting+' '+this.name+punctuation;} document.getElementById('callapply').textContent='call: '+greet.call(person,'Hello','!')+' | apply: '+greet.apply(person,['Hi','!']);
+let count=0; document.getElementById('count').onclick=()=>document.getElementById('counter').textContent=++count;
+const counterObj={_count:0,get count(){return this._count},set count(v){this._count=v}}; counterObj.count=5; document.getElementById('accessor').textContent='Getter/Setter count: '+counterObj.count;
+function Employee(name){this.name=name;}
+// Add new properties and a method to an existing constructor through its prototype.
+Employee.prototype.role='Developer';
+Employee.prototype.department='Engineering';
+Employee.prototype.getDetails=function(){return this.name+' – '+this.role+' – '+this.department;};
+const e=new Employee('Ravi');
+document.getElementById('prototype').textContent=e.getDetails();
+</script></body></html>

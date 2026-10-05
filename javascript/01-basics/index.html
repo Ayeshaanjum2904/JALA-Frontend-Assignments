@@ -1,0 +1,10 @@
+<!doctype html><html><head><meta charset="utf-8"><title>JavaScript Basics</title></head><body><h1>JavaScript Basics</h1><p>Open the source code to see both single-line (//) and multiline (/* ... */) comments.</p><button id="sort">Sort fruits descending</button><p id="fruits"></p><p id="loop"></p><p id="person"></p><p id="hoist"></p><pre id="strict"></pre><script>
+// This is a single-line comment.
+/* This is a multiline comment.
+   It can span more than one line. */
+const fruits=['Apple','Mango','Banana','Orange','Grapes']; const fruitsEl=document.getElementById('fruits'); fruitsEl.textContent=fruits.join(', ');
+document.getElementById('sort').addEventListener('click',()=>{fruits.sort((a,b)=>b.localeCompare(a)); fruitsEl.textContent=fruits.join(', ');});
+const person={firstname:'Vinutna',lastname:'Thode'}; let loopText='FOR/IN: '; for(const key in person){loopText+=key+'='+person[key]+' ';} document.getElementById('loop').textContent=loopText; document.getElementById('person').textContent=person.firstname+' | '+person['lastname'];
+function hoisting(){value='initialized before declaration'; var value; return value;} document.getElementById('hoist').textContent='Hoisting result: '+hoisting();
+(function(){'use strict'; try{undeclaredVariable=10;}catch(e){document.getElementById('strict').textContent='Strict mode error: '+e.message;}})();
+</script></body></html>

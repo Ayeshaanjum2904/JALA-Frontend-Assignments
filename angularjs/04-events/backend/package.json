@@ -1,0 +1,1 @@
+{"name":"jala-angularjs-mysql-api","version":"1.0.0","main":"server.js","scripts":{"start":"node server.js"},"dependencies":{"cors":"^2.8.5","dotenv":"^16.4.5","express":"^4.21.1","mysql2":"^3.11.3"}}
